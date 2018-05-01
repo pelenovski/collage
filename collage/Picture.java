@@ -14,7 +14,7 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  * Copyright Georgia Institute of Technology 2004-2005
  * @author Barbara Ericson ericson@cc.gatech.edu
  */
-public class Picture// extends SimplePicture
+public class Picture extends SimplePicture
 {
   ///////////////////// constructors //////////////////////////////////
 
