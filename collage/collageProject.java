@@ -118,23 +118,45 @@ public class collageProject extends Picture
        Pixel targetPixel = null;
        
        //loop through columns
-       for (sourceX = 0, targetX = 0; sourceX < flowerPicture.getWidth(); sourceX +=2, targetX++)
+       for (sourceX = 0, targetX = 0; sourceX < pinkpantherPicture.getWidth(); sourceX +=2, targetX++)
        {
            //loop through rows
-           for (sourceY = 0, targetY = 0; sourceY < flowerPicture.getHeight(); sourceY +=2, targetY++)
+           for (sourceY = 0, targetY = 0; sourceY < pinkpantherPicture.getHeight(); sourceY +=2, targetY++)
            {
                //set the target pixel color to the source pixel color
-               sourcePixel = flowerPicture.getPixel(sourceX,sourceY);
+               sourcePixel = pinkpantherPicture.getPixel(sourceX,sourceY);
                targetPixel = this.getPixel(targetX,targetY);
                targetPixel.setColor(sourcePixel.setColor());
             }
         }
     }
     
-  public void blend(pinkpantherPicture)
+  public void blend()
   {
+      Pixel sourcePixel = null;
+      Pixel targetPixel = null;
+      
+      Picture pinkpantherPicture = new Picture("images\\Pink-Panther.jpg");
+      Picture memesmile = new Picture("images\\memesmile.jpg");
+      
+      for (sourceX = 0, targetX = 0; sourceX < pinkpantherPicture.getWidth(); sourceX < memesmile.getWidth())
+      {
+          for (sourceY = 0, targetY = 0; sourceY < pinkpantherPicture.getHeight(); sourceY < memesmile.getHeight())
+          {
+              sourcePixel = pinkpantherPicture.getPixel(sourceX,sourceY);
+              targetPixel = memesmile.getPixel(targetX,targetY);
+              targetPixel = memesmile.setColor(pinkpantherPicture.setColor());
+          }
+      } 
+  }
+  
+  public void glass()
+  {
+      Picture pinkpantherPicture = new Picture("images\\Pink-Panther.jpg");
+      Picture memesmile = new Picture("images\\memesmile.jpg");
       
   }
+      
       
   
   
