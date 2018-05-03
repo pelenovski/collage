@@ -16,6 +16,7 @@ import java.util.List; //resolves problem with java.awt.List and java.util.List;
 
 public class collageProject extends Picture
 {
+    Random rand = new Random();
   Picture pinkpantherPicture = (new Picture("images\\Pink-Panther.jpg"));
     
     public collageProject()
@@ -117,13 +118,13 @@ public class collageProject extends Picture
        Pixel sourcePixel = null;
        Pixel targetPixel = null;
        
-       //loop through columns
+       //loop through columns of pixels in image
        for (sourceX = 0, targetX = 0; sourceX < pinkpantherPicture.getWidth(); sourceX +=2, targetX++)
        {
-           //loop through rows
+           //loop through rows of pixels in image
            for (sourceY = 0, targetY = 0; sourceY < pinkpantherPicture.getHeight(); sourceY +=2, targetY++)
            {
-               //set the target pixel color to the source pixel color
+               //sets the target pixel color to the source pixel color
                sourcePixel = pinkpantherPicture.getPixel(sourceX,sourceY);
                targetPixel = this.getPixel(targetX,targetY);
                targetPixel.setColor(sourcePixel.setColor());
@@ -154,9 +155,23 @@ public class collageProject extends Picture
   {
       Picture pinkpantherPicture = new Picture("images\\Pink-Panther.jpg");
       Picture memesmile = new Picture("images\\memesmile.jpg");
+      x = xPos;
+      y = yPos;
       
+      for (xPos = 0; x < pinkpantherPicture.getWidth(); x++)
+      {
+          for (yPos = 0; yPos < pinkpantherPicture.getHeight(); y++)
+          {
+              int xx = (width + x + random(-5,5)) % width;
+              int yy = (height + y + random(-5,5)) % height;
+          }
+      }
   }
       
+  public void posterize()
+  {
+      
+  }
       
   
   
