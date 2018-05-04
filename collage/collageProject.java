@@ -172,6 +172,18 @@ public class collageProject extends Picture
   {
       
   }
+  
+  public void recursive()
+  {
+      //initializes pink panther image
+      Pixel sourcePixel = null;
+      Pixel targetPixel = null;
+      Picture pinkpantherPicture = new Picture("images\\Pink-Panther.jpg");
+      //repeatedly calls pink panther image while shrinking it by a factor of 4
+      for (
+  }
+      
+      
       
   
   
