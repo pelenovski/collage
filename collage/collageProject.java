@@ -1,10 +1,8 @@
-
-
 /**
  * Pane Elenovski
  * 4/30/2018
  * Collage Project 
- * @Takes pink panther image and manipulates it using 
+ * @Takes halva image and manipulates it using 
  */
 import java.awt.*;
 import java.awt.font.*;
@@ -12,63 +10,115 @@ import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.*;
-import java.util.List; //resolves problem with java.awt.List and java.util.List;
+import java.util.List; // resolves problem with java.awt.List and java.util.List
+
 
 public class collageProject extends Picture
 {
-    Random rand = new Random();
-  Picture pinkpantherPicture = (new Picture("images\\Pink-Panther.jpg"));
-    
-    public collageProject()
-    {
-        super();
-    }
-    
-    public collageProject(String fileName)
-    {
-        super(fileName);
-    }
-    
-    public void gray()
-   {
-       Pixel[] pixelArray = this.getPixels();
-       Pixel pixel = null;
-       int intensity = 0;
-       for (int i = 0; i < pixelArray.length; i++)
-       {
-           pixel = pixelArray[i];
-           
-           intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
-           pixel.setColor(new Color(intensity,intensity,intensity));
-       }
-   }
-   
-   public void copyPicture(sourceFile)
-   {
-        
-       String sourceFile = ("images\\Pink-Panther.jpg");
-       Picture sourcePicture = new Picture(sourceFile);
-       //initializes two source pixels with no inital value
-       Pixel sourcePixel = null;
-       Pixel sourcePixel = null;
-       //Will get array out of bounds index error if getWidth of getHeight is used in both for loops (DO NOT MAKE THIS MISTAKE)
-       //width of source must be = or < the canvas I am copy to
-       //loop through the columns
-       for (int sourceX = 0, targetX = 100; sourceX < sourcePicture.getWidth(); SourceX++, targetX++)
-       {
-           //loop through the rows
-           for (int sourceY = 0, targetY = 100; sourceY < sourcePicture.getHeight(); SourceY++, targetY++)
-           {    //set the target pixel color to source pixel color
-               sourcePixel = sourcePicture.getPixel(SourceX,sourceY);
-               //this pixel is my target pixel
-               targetPixel = this.getPixel(targetX,targetY);
-               //sets the color of source pixel to targetpixel
-               targetPixel.setColor(sourcePixel.getColor());
-           }
-       }
+  ///////////////////// constructors //////////////////////////////////
+
+  /**
+   * Constructor that takes no arguments
+   */
+  public collageProject()
+  {
+    /* not needed but use it to show students the implicit call to super()
+     * child constructors always call a parent constructor
+     */
+    super();
   }
-  
-  public void mirrorVertical()
+
+  /**
+   * Constructor that takes a file name and creates the picture
+   * @param fileName the name of the file to create the picture from
+   */
+  public collageProject(String fileName)
+  {
+    // let the parent class handle this fileName
+    super(fileName);
+  }
+
+  /**
+   * Constructor that takes the width and height
+   * @param width the width of the desired picture
+   * @param height the height of the desired picture
+   */
+  public collageProject(int width, int height)
+  {
+    // let the parent class handle this width and height
+    super(width,height);
+  }
+
+  /**
+   * Constructor that takes a picture and creates a
+   * copy of that picture
+   */
+  public collageProject(Picture copyPicture)
+  {
+    // let the parent class do the copy
+    super(copyPicture);
+  }
+
+  /**
+   * Constructor that takes a buffered image
+   * @param image the buffered image to use
+   */
+  public collageProject(BufferedImage image)
+  {
+    super(image);
+  }
+
+  ////////////////////// methods ///////////////////////////////////////
+
+  /**
+   * Method to return a string with information about this picture.
+   * @return a string with information about the picture such as fileName,
+   * height and width.
+   */
+
+   public void gray()
+   {
+           Pixel[] pixelArray = this.getPixels();
+           Pixel pixel = null;
+           int intensity = 0;
+           for (int i = 0; i < pixelArray.length; i++)
+           {
+               pixel = pixelArray[i];
+
+               intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
+               pixel.setColor(new Color(intensity,intensity,intensity));
+           }
+   }
+
+  public void copy(Picture image, int x, int y)
+  {
+      String sourceFile = ("images\\halva.jpeg");
+      Picture sourcePicture = image;
+      //initializes two source pixels with no inital value
+      Pixel sourcePixel = null;
+      //Will get array out of bounds index error if getWidth of getHeight is used in both for loops (DO NOT MAKE THIS MISTAKE)
+      //width of source must be = or < the canvas I am copy to
+      //loop through the columns
+      for (int sourceX = 0, targetX = x; sourceX < sourcePicture.getWidth(); sourceX++, targetX++)
+      {
+          //loop through the rows
+          for (int sourceY = 0, targetY = y; sourceY < sourcePicture.getHeight(); sourceY++, targetY++)
+          {    //set the target pixel color to source pixel color
+              sourcePixel = sourcePicture.getPixel(sourceX,sourceY);
+              //this pixel is my target pixel
+              Pixel targetPixel = this.getPixel(targetX,targetY);
+              //sets the color of source pixel to targetpixel
+              targetPixel.setColor(sourcePixel.getColor());
+          }
+      }
+  }
+   
+   /**
+    * Method to mirror around a vertical line in the middle
+    * of the picture based on the width
+    */
+   
+   public void mirrorVertical()
    {
        int width = this.getWidth();
        int mirrorPoint = width / 2;
@@ -89,7 +139,7 @@ public class collageProject extends Picture
         }
     }
     
-  public void mirrorHorizontal()
+   public void mirrorHorizontal()
    {
        int height = this.getHeight();
        int mirrorPoint = height / 2;
@@ -110,97 +160,60 @@ public class collageProject extends Picture
             }
         }
     }
-    
-  public void copySmaller("images\\Pink-Panther.jpg")
+   public void copySmaller(Picture image)
    {
-       Picture pinkpantherPicture = (new Picture("images\\Pink-Panther.jpg"));
+       Picture pic = image;
        
        Pixel sourcePixel = null;
        Pixel targetPixel = null;
        
-       //loop through columns of pixels in image
-       for (sourceX = 0, targetX = 0; sourceX < pinkpantherPicture.getWidth(); sourceX +=2, targetX++)
+       //loop through columns
+       for (int sourceX = 0, targetX = 0; sourceX < pic.getWidth(); sourceX +=2, targetX++)
        {
-           //loop through rows of pixels in image
-           for (sourceY = 0, targetY = 0; sourceY < pinkpantherPicture.getHeight(); sourceY +=2, targetY++)
+           //loop through rows
+           for (int sourceY = 0, targetY = 0; sourceY < pic.getHeight(); sourceY +=2, targetY++)
            {
-               //sets the target pixel color to the source pixel color
-               sourcePixel = pinkpantherPicture.getPixel(sourceX,sourceY);
+               //set the target pixel color to the source pixel color
+               sourcePixel = pic.getPixel(sourceX,sourceY);
                targetPixel = this.getPixel(targetX,targetY);
-               targetPixel.setColor(sourcePixel.setColor());
+               targetPixel.setColor(sourcePixel.getColor());
             }
         }
     }
     
-  public void blend()
+    public void recursivePic(Picture pic){
+       Picture image = pic;
+        if (image.getHeight() < 30)
+        {} //base case
+        else
+       {
+         Picture copy = new Picture(image.getWidth()/2 , image.getHeight()/2 );
+         copy.copySmaller(image);
+         
+         image.recursivePic(copy);
+         image.copy(copy, 0, 0);
+        }
+    }
+    
+  public String toString()
   {
-      Pixel sourcePixel = null;
-      Pixel targetPixel = null;
-      
-      Picture pinkpantherPicture = new Picture("images\\Pink-Panther.jpg");
-      Picture memesmile = new Picture("images\\memesmile.jpg");
-      
-      for (sourceX = 0, targetX = 0; sourceX < pinkpantherPicture.getWidth(); sourceX < memesmile.getWidth())
-      {
-          for (sourceY = 0, targetY = 0; sourceY < pinkpantherPicture.getHeight(); sourceY < memesmile.getHeight())
-          {
-              sourcePixel = pinkpantherPicture.getPixel(sourceX,sourceY);
-              targetPixel = memesmile.getPixel(targetX,targetY);
-              targetPixel = memesmile.setColor(pinkpantherPicture.setColor());
-          }
-      } 
+    String output = "Picture, filename " + getFileName() +
+      " height " + getHeight()
+      + " width " + getWidth();
+    return output;
+
   }
   
-  public void glass()
-  {
-      Picture pinkpantherPicture = new Picture("images\\Pink-Panther.jpg");
-      Picture memesmile = new Picture("images\\memesmile.jpg");
-      x = xPos;
-      y = yPos;
-      
-      for (xPos = 0; x < pinkpantherPicture.getWidth(); x++)
-      {
-          for (yPos = 0; yPos < pinkpantherPicture.getHeight(); y++)
-          {
-              int xx = (width + x + random(-5,5)) % width;
-              int yy = (height + y + random(-5,5)) % height;
-          }
-      }
-  }
-      
-  public void posterize()
-  {
-      
-  }
-  
-  public void recursive()
-  {
-      //initializes pink panther image
-      Pixel sourcePixel = null;
-      Pixel targetPixel = null;
-      Picture pinkpantherPicture = new Picture("images\\Pink-Panther.jpg");
-      //repeatedly calls pink panther image while shrinking it by a factor of 4
-      for (
-  }
-      
-      
-      
-  
-  
+
   public static void main(String[] args)
   {
-     String fileName = FileChooser.pickAFile();
-     Picture pictObj = new Picture(fileName);
-     pictObj.explore();
-  }
+     //String fileName = FileChooser.pickAFile();
+     //Picture pictObj = new Picture(fileName);
+     //pictObj.explore();
+     Picture pic = new Picture("images\\halva.jpg");
+     Picture copyTo = new Picture("images\\toCopy.jpg");
+     copyTo.recursivePic(pic);
+    }
 
-    
-  
-    
-    
-    
-    
-    
-    
-    
-}
+} // this } is the end of class Picture, put all new methods before this
+
