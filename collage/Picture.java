@@ -1,4 +1,4 @@
-package bookClasses;
+ 
 
 import java.awt.*;
 import java.awt.font.*;
@@ -71,43 +71,45 @@ public class Picture extends SimplePicture
     super(image);
   }
 
+  
+  
   ////////////////////// methods ///////////////////////////////////////
-
+  
   /**
    * Method to return a string with information about this picture.
    * @return a string with information about the picture such as fileName,
    * height and width.
    */
-
+/**
    public void gray()
    {
-           Pixel[] pixelArray = this.getPixels();
-           Pixel pixel = null;
-           int intensity = 0;
-           for (int i = 0; i < pixelArray.length; i++)
-           {
-               pixel = pixelArray[i];
+       Pixel[] pixelArray = this.getPixels();
+       Pixel pixel = null;
+       int intensity = 0;
+       for (int i = 0; i < pixelArray.length; i++)
+       {
+           pixel = pixelArray[i];
 
-               intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
-               pixel.setColor(new Color(intensity,intensity,intensity));
-           }
+           intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
+           pixel.setColor(new Color(intensity,intensity,intensity));
+       }
    }
 
    
-	public void gray()
-	{
-	        Pixel[] pixelArray = this.getPixels();
-	        Pixel pixel = null;
-	        int intensity = 0;
-	        for (int i = 0; i < pixelArray.length; i++)
-	        {
-	            pixel = pixelArray[i];
+  public void gray()
+  {
+      Pixel[] pixelArray = this.getPixels();
+      Pixel pixel = null;
+      int intensity = 0;
+      for (int i = 0; i < pixelArray.length; i++)
+      {
+          pixel = pixelArray[i];
 
-	            intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
-	            pixel.setColor(new Color(intensity,intensity,intensity));
-	        }
-    }
-
+          intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
+          pixel.setColor(new Color(intensity,intensity,intensity));
+      }
+  }
+*/
 
   public String toString()
   {

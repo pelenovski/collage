@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Picture()
+comment0.text=\r\n\ Constructor\ that\ takes\ no\ arguments\r\n
+comment1.params=fileName
+comment1.target=Picture(java.lang.String)
+comment1.text=\r\n\ Constructor\ that\ takes\ a\ file\ name\ and\ creates\ the\ picture\r\n\ @param\ fileName\ the\ name\ of\ the\ file\ to\ create\ the\ picture\ from\r\n
+comment2.params=width\ height
+comment2.target=Picture(int,\ int)
+comment2.text=\r\n\ Constructor\ that\ takes\ the\ width\ and\ height\r\n\ @param\ width\ the\ width\ of\ the\ desired\ picture\r\n\ @param\ height\ the\ height\ of\ the\ desired\ picture\r\n
+comment3.params=copyPicture
+comment3.target=Picture(Picture)
+comment3.text=\r\n\ Constructor\ that\ takes\ a\ picture\ and\ creates\ a\r\n\ copy\ of\ that\ picture\r\n
+comment4.params=image
+comment4.target=Picture(java.awt.image.BufferedImage)
+comment4.text=\r\n\ Constructor\ that\ takes\ a\ buffered\ image\r\n\ @param\ image\ the\ buffered\ image\ to\ use\r\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ \ \ public\ void\ gray()\r\n\ \ \ {\r\n\ \ \ \ \ \ \ Pixel[]\ pixelArray\ \=\ this.getPixels();\r\n\ \ \ \ \ \ \ Pixel\ pixel\ \=\ null;\r\n\ \ \ \ \ \ \ int\ intensity\ \=\ 0;\r\n\ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ pixelArray.length;\ i++)\r\n\ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ pixel\ \=\ pixelArray[i];\r\n\r\n\ \ \ \ \ \ \ \ \ \ \ intensity\ \=\ (int)((pixel.getRed()\ +\ pixel.getGreen()\ +\ pixel.getBlue())/3);\r\n\ \ \ \ \ \ \ \ \ \ \ pixel.setColor(new\ Color(intensity,intensity,intensity));\r\n\ \ \ \ \ \ \ }\r\n\ \ \ }\r\n\r\n\ \ \ \r\n\ \ public\ void\ gray()\r\n\ \ {\r\n\ \ \ \ \ \ Pixel[]\ pixelArray\ \=\ this.getPixels();\r\n\ \ \ \ \ \ Pixel\ pixel\ \=\ null;\r\n\ \ \ \ \ \ int\ intensity\ \=\ 0;\r\n\ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ pixelArray.length;\ i++)\r\n\ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ pixel\ \=\ pixelArray[i];\r\n\r\n\ \ \ \ \ \ \ \ \ \ intensity\ \=\ (int)((pixel.getRed()\ +\ pixel.getGreen()\ +\ pixel.getBlue())/3);\r\n\ \ \ \ \ \ \ \ \ \ pixel.setColor(new\ Color(intensity,intensity,intensity));\r\n\ \ \ \ \ \ }\r\n\ \ }\r\n
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+numComments=7

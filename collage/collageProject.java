@@ -78,16 +78,16 @@ public class collageProject extends Picture
 
    public void gray()
    {
-           Pixel[] pixelArray = this.getPixels();
-           Pixel pixel = null;
-           int intensity = 0;
-           for (int i = 0; i < pixelArray.length; i++)
-           {
-               pixel = pixelArray[i];
-
-               intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
-               pixel.setColor(new Color(intensity,intensity,intensity));
-           }
+       Pixel[] pixelArray = this.getPixels();
+       Pixel pixel = null;
+       int intensity = 0;
+       for (int i = 0; i < pixelArray.length; i++)
+       {
+           pixel = pixelArray[i];
+           
+           intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
+           pixel.setColor(new Color(intensity,intensity,intensity));
+       }
    }
 
   public void copy(Picture image, int x, int y)
