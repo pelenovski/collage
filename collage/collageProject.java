@@ -1,3 +1,4 @@
+
 /**
  * Pane Elenovski
  * 4/30/2018
@@ -78,16 +79,16 @@ public class collageProject extends Picture
 
    public void gray()
    {
-       Pixel[] pixelArray = this.getPixels();
-       Pixel pixel = null;
-       int intensity = 0;
-       for (int i = 0; i < pixelArray.length; i++)
-       {
-           pixel = pixelArray[i];
-           
-           intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
-           pixel.setColor(new Color(intensity,intensity,intensity));
-       }
+           Pixel[] pixelArray = this.getPixels();
+           Pixel pixel = null;
+           int intensity = 0;
+           for (int i = 0; i < pixelArray.length; i++)
+           {
+               pixel = pixelArray[i];
+
+               intensity = (int)((pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3);
+               pixel.setColor(new Color(intensity,intensity,intensity));
+           }
    }
 
   public void copy(Picture image, int x, int y)
@@ -210,8 +211,8 @@ public class collageProject extends Picture
      //String fileName = FileChooser.pickAFile();
      //Picture pictObj = new Picture(fileName);
      //pictObj.explore();
-     Picture pic = new Picture("images\\halva.jpg");
-     Picture copyTo = new Picture("images\\toCopy.jpg");
+     Picture pic = new Picture("Desktop\\halva.jpg");
+     Picture copyTo = new Picture("Desktop\\toCopy.jpg");
      copyTo.recursivePic(pic);
     }
 
