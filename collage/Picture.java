@@ -1,4 +1,3 @@
-//solid arrow from collageProject to Picture
 import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
@@ -15,9 +14,11 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  * Copyright Georgia Institute of Technology 2004-2005
  * @author Barbara Ericson ericson@cc.gatech.edu
  */
+//WORKS
 public class Picture extends SimplePicture
 {
   ///////////////////// constructors //////////////////////////////////
+  
 
   /**
    * Constructor that takes no arguments
@@ -94,7 +95,7 @@ public class Picture extends SimplePicture
 
   public void copy(Picture image, int x, int y)
   {
-      String sourceFile = ("images\\halva.jpeg");
+      String sourceFile = ("halva.jpg");
       Picture sourcePicture = image;
       //initializes two source pixels with no inital value
       Pixel sourcePixel = null;
@@ -209,10 +210,7 @@ public class Picture extends SimplePicture
 
   public static void main(String[] args)
   {
-     String fileName = FileChooser.pickAFile();
-     Picture pictObj = new Picture(fileName);
-     pictObj.explore();
-     
-    }
+  
+   }
 
 } // this } is the end of class Picture, put all new methods before this
