@@ -1,13 +1,2 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
-
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-DEPENDENCIES:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+I manipulated an image of the international delicacy, Halva, using horizontal and Vertical 
+flipping. I also converted the image to gray scale and had it recursively print a smaller image of itself (up until a certain point in which it would be visible). 
