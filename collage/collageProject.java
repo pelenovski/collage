@@ -1,10 +1,17 @@
 
+
 /**
  * Pane Elenovski
  * 4/30/2018
  * Collage Project 
  * @Takes halva image and manipulates it using 
  */
+import java.io.IOException;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
@@ -13,7 +20,7 @@ import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
-
+//DOESNT WORK
 public class collageProject extends Picture
 {
   ///////////////////// constructors //////////////////////////////////
@@ -93,7 +100,7 @@ public class collageProject extends Picture
 
   public void copy(Picture image, int x, int y)
   {
-      String sourceFile = ("images\\halva.jpeg");
+      String sourceFile = ("halva.jpg");
       Picture sourcePicture = image;
       //initializes two source pixels with no inital value
       Pixel sourcePixel = null;
@@ -139,7 +146,6 @@ public class collageProject extends Picture
            }
         }
     }
-    
    public void mirrorHorizontal()
    {
        int height = this.getHeight();
@@ -192,6 +198,7 @@ public class collageProject extends Picture
          copy.copySmaller(image);
          
          image.recursivePic(copy);
+         
          image.copy(copy, 0, 0);
         }
     }
@@ -205,16 +212,50 @@ public class collageProject extends Picture
 
   }
   
-
-  public static void main(String[] args)
+  
+public static BufferedImage joinBufferedImage(BufferedImage img1,
+      BufferedImage img2) {
+    int offset = 2;
+    int width = img1.getWidth() + img2.getWidth() + offset;
+    int height = Math.max(img1.getHeight(), img2.getHeight()) + offset;
+    BufferedImage newImage = new BufferedImage(width, height,
+        BufferedImage.TYPE_INT_ARGB);
+    Graphics2D g2 = newImage.createGraphics();
+    Color oldColor = g2.getColor();
+    g2.setPaint(Color.BLACK);
+    g2.fillRect(0, 0, width, height);
+    g2.setColor(oldColor);
+    g2.drawImage(img1, null, 0, 0);
+    g2.drawImage(img2, null, img1.getWidth() + offset, 0);
+    g2.dispose();
+    return newImage;
+  }
+  public static void main(String[] args) 
   {
-     //String fileName = FileChooser.pickAFile();
-     //Picture pictObj = new Picture(fileName);
-     //pictObj.explore();
-     Picture pic = new Picture("Desktop\\halva.jpg");
-     Picture copyTo = new Picture("Desktop\\toCopy.jpg");
-     copyTo.recursivePic(pic);
-    }
+     String fileName = FileChooser.pickAFile();
+     Picture pic = new Picture(fileName);
+     Picture pic2 = new Picture(fileName);
+     Picture pic3 = new Picture(fileName);
+     Picture pic4 = new Picture(fileName);
+     Picture pic5 = new Picture(fileName);
+     pic.mirrorVertical();
+     pic.explore();
+     pic2.mirrorHorizontal();
+     pic2.explore();
+     pic3.gray();
+     pic3.explore();
+     pic4.recursivePic(pic4);
+     pic4.explore();
+     pic5.explore();
+     
+  
+     pic.write("C:\\Users\\gelen\\Downloads\\collage-master\\collage\\pic.png");
+     pic2.write("C:\\Users\\gelen\\Downloads\\collage-master\\collage\\pic2.png");
+     pic3.write("C:\\Users\\gelen\\Downloads\\collage-master\\collage\\pic3.png");
+     pic4.write("C:\\Users\\gelen\\Downloads\\collage-master\\collage\\pic4.png");
+     pic5.write("C:\\Users\\gelen\\Downloads\\collage-master\\collage\\pic5.png");
+     
 
-} // this } is the end of class Picture, put all new methods before this
+} // this } is the end of class Picture, put all new methods before this}
+}
 
